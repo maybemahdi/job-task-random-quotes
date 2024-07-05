@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         main: ["Julee", "sans-serif"],
+        local: ["Josefin Sans", "sans-serif"],
       },
     },
   },
