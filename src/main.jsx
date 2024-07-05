@@ -1,12 +1,32 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { Toaster } from 'react-hot-toast'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { Toaster } from "react-hot-toast";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Layout from "./Layout/Layout.jsx";
+import MyList from "./MyList.jsx";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "/myList",
+        element: <MyList />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-    <Toaster/>
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+    <Toaster />
+  </React.StrictMode>
+);
